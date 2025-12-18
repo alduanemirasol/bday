@@ -4,7 +4,7 @@ import http.server
 import socketserver
 import threading
 
-PORT = 8000
+PORT = 8001
 
 ip = socket.gethostbyname(socket.gethostname())
 url = f"http://{ip}:{PORT}"
