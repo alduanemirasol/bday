@@ -1,3 +1,26 @@
+const modal = document.getElementById('welcomeModal');
+const yesBtn = document.getElementById('yesBtn');
+const music = document.getElementById('bgMusic');
+
+music.currentTime = 20;
+music.volume = 0;
+music.play().then(() => {
+    let v = 0;
+    const fade = setInterval(() => {
+        v += 0.02;
+        music.volume = Math.min(v, 0.4);
+        if (v >= 0.4) clearInterval(fade);
+    }, 100);
+}).catch(() => {});
+
+yesBtn.addEventListener('click', () => {
+    modal.style.display = 'none';       // show page
+
+    music.currentTime = 20;             // start at 20 seconds
+    music.volume = 0.4;
+    music.play().catch(() => {});       // start music
+});
+
 const emojis = ['🎉','🎂','🎈','🥳','🍰','🎁','✨'];
 function createEmoji() {
     const emoji = document.createElement('span');
@@ -28,6 +51,7 @@ document.querySelectorAll('.bounce-text .line').forEach(line => {
 });
 
 const track = document.querySelector('.carousel-track');
+
 const images = [
     'images/photo1.jpeg',
     'images/photo2.jpeg',
@@ -39,32 +63,31 @@ const images = [
     'images/photo8.jpeg'
 ];
 
-// duplicate images for seamless loop
-const allImages = [...images, ...images];
-
-allImages.forEach(src => {
+// build cards
+images.concat(images).forEach(src => {
     const card = document.createElement('div');
     card.className = 'carousel-card';
+
     const img = document.createElement('img');
     img.src = src;
+
     card.appendChild(img);
     track.appendChild(card);
 });
 
-// calculate total width of track
-const cards = document.querySelectorAll('.carousel-card');
-let trackWidth = 0;
-cards.forEach(card => {
-    trackWidth += card.offsetWidth + 20; // width + margin
-});
+// seamless infinite scroll
+let position = 0;
+const speed = 0.4; // adjust speed
 
-track.style.width = trackWidth + 'px';
-track.style.animationDuration = (trackWidth / 50) + 's'; // adjust speed
-track.style.animationName = 'scroll';
+function animateCarousel() {
+    position -= speed;
 
-const styleSheet = document.styleSheets[0];
-styleSheet.insertRule(`
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-${trackWidth/2}px); }
-}`, styleSheet.cssRules.length);
+    if (Math.abs(position) >= track.scrollWidth / 2) {
+        position = 0;
+    }
+
+    track.style.transform = `translateX(${position}px)`;
+    requestAnimationFrame(animateCarousel);
+}
+
+animateCarousel();

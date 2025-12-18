@@ -8,6 +8,16 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
+<div id="welcomeModal" class="modal">
+    <div class="modal-content">
+        <h2>🎉 Happy Birthday! 🎉</h2>
+        <p>Do you want to open the birthday page with music?</p>
+        <button id="yesBtn">Yes!</button>
+    </div>
+</div>
+
+<audio id="bgMusic" src="audios/celebration.mp3" loop preload="auto"></audio>
+
 <body>
     <main class="page">
 
@@ -35,11 +45,14 @@
             <div class="message-card">
                 <p>
                     Wishing you lots of joy, laughter, and love on your special day!
-                    Growing more pautog to the both of use! 🎉🎂🥳
+                    Growing more pautog to the both of us! 🎉🎂🥳
                 </p>
             </div>
         </section>
 
+        <section class="section-button">
+            <button id="clickHereBtn">Click Here</button>
+        </section>
     </main>
 
     <script src="script.js"></script>

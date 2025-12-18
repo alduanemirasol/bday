@@ -8,6 +8,43 @@ html, body {
     overflow-x: hidden;
 }
 
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 400px;
+    font-family: 'Londrina Solid', sans-serif;
+}
+
+.modal-content h2 {
+    margin-bottom: 1rem;
+}
+
+.modal-content button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #fc888c, #fecfef);
+    color: #1E1E1E;
+}
+
+
 body {
     background: linear-gradient(135deg, #fc888c, #fecfef);
     font-family: 'Londrina Solid', sans-serif;
@@ -39,6 +76,10 @@ h1 {
     z-index: 10;
 }
 
+.page {
+    gap: 1.5rem;
+}
+
 .bounce-text .line {
     display: inline-block;
     animation: softBounce 2.8s ease-in-out infinite;
@@ -53,10 +94,6 @@ h1 {
 .line2 { font-weight: 900; }
 .line3 { font-weight: 400; }
 
-/* Cake */
-.section-cake {
-    margin-top: 1rem;
-}
 
 .cake-container {
     position: relative;
@@ -134,4 +171,26 @@ h1 {
     font-size: clamp(1rem, 2vw, 1.4rem);
     max-width: 600px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.section-button {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.section-button button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #fc888c, #fecfef);
+    color: #1E1E1E;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.section-button button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
