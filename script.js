@@ -34,7 +34,9 @@ const images = [
     'images/photo3.jpeg',
     'images/photo4.jpeg',
     'images/photo5.jpeg',
-    'images/photo6.jpeg'
+    'images/photo6.jpeg',
+    'images/photo7.jpeg',
+    'images/photo8.jpeg'
 ];
 
 // duplicate images for seamless loop
